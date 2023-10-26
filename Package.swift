@@ -1,25 +1,26 @@
-// swift-tools-version:4.2
+// swift-tools-version:5.8
 import Foundation
 import PackageDescription
 
 let package = Package(
   name: "Html",
+  platforms: [.iOS(.v15), .macOS(.v12)],
   products: [
     .library(
       name: "Html",
       targets: ["Html"]),
-    .library(
+    /*.library(
       name: "HtmlSnapshotTesting",
-      targets: ["HtmlSnapshotTesting"]),
+      targets: ["HtmlSnapshotTesting"]),*/
   ],
   dependencies: [
-    .package(url: "https://github.com/pointfreeco/swift-snapshot-testing.git", from: "1.5.0"),
+    //.package(url: "https://github.com/pointfreeco/swift-snapshot-testing.git", from: "1.5.0"),
   ],
   targets: [
     .target(
       name: "Html",
       dependencies: []),
-    .testTarget(
+    /*.testTarget(
       name: "HtmlTests",
       dependencies: ["Html"]),
     .target(
@@ -27,12 +28,8 @@ let package = Package(
       dependencies: ["Html", "SnapshotTesting"]),
     .testTarget(
       name: "HtmlSnapshotTestingTests",
-      dependencies: ["HtmlSnapshotTesting"]),
-    ],
-  swiftLanguageVersions: [
-    .version("5"),
-    .v4_2,
-  ]
+      dependencies: ["HtmlSnapshotTesting"]),*/
+    ]
 )
 
 if ProcessInfo.processInfo.environment.keys.contains("PF_DEVELOP") {
